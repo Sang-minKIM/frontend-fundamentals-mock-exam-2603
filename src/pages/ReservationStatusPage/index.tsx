@@ -5,6 +5,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Top, Spacing, Border, Button, Text, ListRow } from '_tosslib/components';
 import { colors } from '_tosslib/constants/colors';
 import { DatePickerSection } from './DatePickerSection';
+import { MessageBanner } from './MessageBanner';
 import { ReservationTimelineSection } from './ReservationTimelineSection';
 import { getRooms, getReservations, getMyReservations, cancelReservation } from 'pages/remotes';
 import { EQUIPMENT_LABELS, formatDate } from 'utils/meetingRoom';
@@ -82,26 +83,7 @@ export function ReservationStatusPage() {
       <Spacing size={24} />
 
       {/* 메시지 배너 */}
-      {message && (
-        <div css={css`padding: 0 24px;`}>
-          <div
-            css={css`
-              padding: 10px 14px; border-radius: 10px;
-              background: ${message.type === 'success' ? colors.blue50 : colors.red50};
-              display: flex; align-items: center; gap: 8px;
-            `}
-          >
-            <Text
-              typography="t7"
-              fontWeight="medium"
-              color={message.type === 'success' ? colors.blue600 : colors.red500}
-            >
-              {message.text}
-            </Text>
-          </div>
-          <Spacing size={12} />
-        </div>
-      )}
+      {message && <MessageBanner text={message.text} type={message.type} />}
 
       {/* 내 예약 목록 */}
       <div css={css`padding: 0 24px;`}>
