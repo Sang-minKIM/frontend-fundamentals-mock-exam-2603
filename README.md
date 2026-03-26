@@ -1,4 +1,4 @@
-# 토스 Frontend Developer 면접 과제 🔥
+# frontend-fundamentals 모의고사 🔥
 
 ## Getting started
 ```sh
